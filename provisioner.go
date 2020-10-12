@@ -166,11 +166,13 @@ func (p *LocalPathProvisioner) Provision(opts pvController.VolumeOptions) (*v1.P
 	if pvc.Spec.Selector != nil {
 		return nil, fmt.Errorf("claim.Spec.Selector is not supported")
 	}
+/*
 	for _, accessMode := range pvc.Spec.AccessModes {
 		if accessMode != v1.ReadWriteOnce {
 			return nil, fmt.Errorf("Only support ReadWriteOnce access mode")
 		}
 	}
+*/
 	node := opts.SelectedNode
 	if opts.SelectedNode == nil {
 		return nil, fmt.Errorf("configuration error, no node was specified")

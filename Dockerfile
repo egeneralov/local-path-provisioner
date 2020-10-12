@@ -1,6 +1,6 @@
-FROM golang:1.12.9-alpine
+FROM golang:1.14.1
 
-RUN apk add --no-cache ca-certificates git
+# RUN apk add --no-cache ca-certificates git
 
 ENV \
   GO111MODULE=on \
