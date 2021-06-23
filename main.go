@@ -240,7 +240,7 @@ func startDaemon(c *cli.Context) error {
 }
 
 func main() {
-	logrus.SetFormatter(&logrus.TextFormatter{FullTimestamp: true})
+	logrus.SetFormatter(&logrus.JSONFormatter{})
 
 	a := cli.NewApp()
 	a.Version = VERSION
