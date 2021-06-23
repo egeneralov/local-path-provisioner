@@ -197,10 +197,11 @@ func (p *LocalPathProvisioner) Provision(opts pvController.ProvisionOptions) (*v
 		return nil, err
 	}
 
-	name := opts.PVName
+	name := opts.PVC.Namespace + "--" + opts.PVC.Name
 	folderName := strings.Join([]string{name, opts.PVC.Namespace, opts.PVC.Name}, "_")
 
 	path := filepath.Join(basePath, folderName)
+	path = strings.Replace(path, "--", "/", 1)
 	logrus.Infof("Creating volume %v at %v:%v", name, node.Name, path)
 
 	storage := pvc.Spec.Resources.Requests[v1.ResourceName(v1.ResourceStorage)]
